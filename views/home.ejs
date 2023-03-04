@@ -1,0 +1,55 @@
+<% include ./partials/header.ejs %>
+
+        <div class="container">
+            <div class="row">
+                <h1 class="lead" style="text-align:center">Upload File</h1>
+                <div style="margin: 20px auto; width:30%">
+                    <form action="/upload" id="form" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                             <label for="file">Choose .CSV file</label>
+                            <input class="form-control" onchange="return fileValidation()" type="file" id="file" name="file" accept="file/*" required>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" id="button">Upload</button>
+                        </div>
+                    </form>
+                    
+                  
+
+                </div>
+            </div>
+        </div>
+        <div  class="container" >
+            <div class="row">
+                <div  style="margin: 20px auto; width:40%;">
+                    <h4>Uploaded files list</h4>
+                    <ul class="list-group" id="csv-group-list" style="height: 40vh;" >
+                    <% for(let i of data){%> 
+            
+                        <li class="list-group-item">  <a href="/upload/viewdata/<%= i._id %>"><h6> <i class="fa-solid fa-file-csv"></i>  <%= i.name %></h6></a></li>
+        
+                    <%}%>
+                    </ul>
+                </div>
+            </div>
+       </div>
+     <script>
+        
+        function fileValidation() {
+            var fileInput =
+                document.getElementById('file');
+             
+            var filePath = fileInput.value;
+         
+            // Allowing file type
+            var allowedExtensions =
+                    /(\.csv)$/i;
+             
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Invalid file type');
+                fileInput.value = '';
+                return false;
+            }
+        }
+    </script>
+<% include ./partials/footer.ejs %>
