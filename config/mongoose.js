@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 // const uri = 'mongodb://127.0.0.1/csvFiles';
-const uri = "mongodb+srv://pydamnaidu:D1OBXUD9rcUXnqwn@CSV_file_Viewer.cjh6ckr.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://pydamnaidu:cam29YlaSK3cRHqa@CSV_file_Viewer.cjh6ckr.mongodb.net/?retryWrites=true&w=majority";
 mongoose.connect(uri,{useUnifiedTopology: true,useNewUrlParser: true});
 mongoose.set('strictQuery', false)
 const db = mongoose.connection
