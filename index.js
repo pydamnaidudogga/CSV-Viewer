@@ -26,7 +26,7 @@ app.use(methodOverride("_method"));
 app.use(fileUpload());
 
 // using the csv routes in index.js
-app.use("/upload", csvRoutes);
+app.use("/", csvRoutes);
 
 
 
